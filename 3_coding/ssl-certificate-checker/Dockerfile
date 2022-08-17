@@ -13,5 +13,4 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine
 WORKDIR /prod
 COPY --from=build /stage/output ./
 
-EXPOSE 7010
 ENTRYPOINT ["dotnet","SslCertificateChecker.dll"]
