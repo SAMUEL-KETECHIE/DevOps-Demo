@@ -2,10 +2,26 @@
 A simple project to demonstrate IaC
 
 
-## Environment Variables
+## Application Environment Variables
 ```
 CERT_CHECK_FROM_DAYS_MORE=15
 ASPNETCORE_ENVIRONMENT="Development"
 DOTNET_ENVIRONMENT="Development"
+
+```
+
+## Infra Pipeline Variables
+```
+TF_STATE_STORAGE_ACCOUNT_RG
+TF_STATE_STORAGE_ACCOUNT_NAME
+TF_STATE_STORAGE_ACCOUNT_KEY
+
+---
+
+RG_LOCATION
+RG_NAME
+CLUSTER_NAME
+ACR_NAME
+ENVIRONMENT
 
 ```
