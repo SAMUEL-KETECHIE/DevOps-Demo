@@ -37,7 +37,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     type                 = "VirtualMachineScaleSets"
     enable_auto_scaling  = true
     orchestrator_version = data.azurerm_kubernetes_service_versions.akscurrentversion.latest_version
-    os_disk_size_gb      = 128
+    os_disk_size_gb      = 30
 
     node_labels = {
       "nodepool-type" = "system"
@@ -58,14 +58,14 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 
   # Linux Profile
-#   linux_profile {
-#     admin_username = var.admin_username
-#     ssh_key {
-#       key_data = file(var.ssh_key)
-#     }
-#   }
+  #   linux_profile {
+  #     admin_username = var.admin_username
+  #     ssh_key {
+  #       key_data = file(var.ssh_key)
+  #     }
+  #   }
 
- 
+
   #Network profile: azure= Azure CNI, kubenet= KubeNet
   network_profile {
     network_plugin    = "kubenet"
@@ -81,4 +81,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
 }
 
-
+#Assign Image pull role to the kubernetes kubelet identity
+resource "azurerm_role_assignment" "ra" {
+  principal_id                     = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
+  role_definition_name             = "AcrPull"
+  scope                            = azurerm_container_registry.acr.id
+  skip_service_principal_aad_check = true
+}

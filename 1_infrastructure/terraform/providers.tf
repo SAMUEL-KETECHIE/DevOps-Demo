@@ -8,10 +8,11 @@ terraform {
 
   required_version = ">= 1.2.0"
 
+  #backend for storing/saving tfstate file
   backend "azurerm" {
-    resource_group_name  = "test-rg"
-    storage_account_name = "__storateaccountname__"
-    access_key="__storageaccountkey__"
+    resource_group_name  = "__TF_STATE_STORAGE_ACCOUNT_RG__"
+    storage_account_name = "__TF_STATE_STORAGE_ACCOUNT_NAME__"
+    access_key           = "__TF_STATE_STORAGE_ACCOUNT_KEY__"
     container_name       = "terraform"
     key                  = "terraform.tfstate"
   }
