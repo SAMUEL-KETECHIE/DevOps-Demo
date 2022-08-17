@@ -1,0 +1,13 @@
+resource_group_location = "__rglocation__" #East Us
+resource_group_name     = "__rgname__"
+kubernetes_version      = "1.23.9"
+kubernetes_cluster_name = "__clustername__"
+dns_prefix              = "test-ask"
+admin_username          = "testuser"
+container_registry_name = "__acrname__"
+min_node_count          = 1
+max_node_count          = 3
+ssh_key                 = "testuserkey.pub"
+environment             = "development"
+linux_vmss_size         = "Standard_DS2_v2"
+max_pods                = 250
