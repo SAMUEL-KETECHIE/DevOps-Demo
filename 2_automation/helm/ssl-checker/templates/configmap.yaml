@@ -6,3 +6,5 @@ data:
   ASPNETCORE_ENVIRONMENT: "{{ .Values.config.ASPNETCORE_ENVIRONMENT }}"
   DOTNET_ENVIRONMENT: "{{ .Values.config.DOTNET_ENVIRONMENT }}"
   CERT_CHECK_FROM_DAYS_MORE: "{{ .Values.config.CERT_CHECK_FROM_DAYS_MORE }}"
+  EXEC_HOUR: "{{ .Values.config.EXEC_HOUR }}"
+  DOMAINS: "{{ .Values.config.DOMAINS }}"

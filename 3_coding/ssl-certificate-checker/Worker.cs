@@ -26,9 +26,12 @@ namespace SslCertificateChecker
                 _logger.LogInformation("SSL Certificate Checker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
 
-                if (DateTime.Now.Hour == _appConfigs.ExecHour)
+                var envExecHour = Environment.GetEnvironmentVariable("EXEC_HOUR");
+                var execHour= !string.IsNullOrWhiteSpace(envExecHour) ? int.Parse(envExecHour) : _appConfigs.ExecHour;
+                if (DateTime.Now.Hour == execHour)
                 {
-                    var domains = _appConfigs.Domains?.Split(',');
+                    var envDomains= Environment.GetEnvironmentVariable("DOMAINS"); 
+                    var domains =!string.IsNullOrWhiteSpace(envDomains)? envDomains?.Split(',') : _appConfigs.Domains?.Split(',');
                     if (domains?.Any()==true)
                         foreach (var domain in domains)
                         {
