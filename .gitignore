@@ -31,3 +31,6 @@ override.tf.json
 3_coding/ssl-certificate-checker/obj/Debug/
 3_coding/ssl-certificate-checker/obj/
 3_coding/ssl-certificate-checker/.vs/
+1_infrastructure/docs/.$DevOps-Demo-Infra.drawio.bkp
+*.dtmp
+*.drawio
