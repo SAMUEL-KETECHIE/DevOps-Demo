@@ -4,7 +4,9 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Development"
+        "DOTNET_ENVIRONMENT": "Development",
+        "EXEC_HOUR": "5",
+        "CERT_CHECK_FROM_DAYS_MORE": "100"
       }
     }
   }

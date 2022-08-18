@@ -27,3 +27,7 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+3_coding/ssl-certificate-checker/bin/
+3_coding/ssl-certificate-checker/obj/Debug/
+3_coding/ssl-certificate-checker/obj/
+3_coding/ssl-certificate-checker/.vs/

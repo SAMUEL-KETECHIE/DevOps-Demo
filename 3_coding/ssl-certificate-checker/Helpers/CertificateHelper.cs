@@ -72,7 +72,8 @@ namespace SslCertificateChecker.Helpers
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
             var expirationDate = DateTime.Parse(certificate.GetExpirationDateString(), CultureInfo.InvariantCulture);
             var daysRemaining = expirationDate - DateTime.Today;
-            var certCheckFromDaysMore = int.Parse(Environment.GetEnvironmentVariable("CERT_CHECK_FROM_DAYS_MORE")) != 0 ? int.Parse(Environment.GetEnvironmentVariable("CERT_CHECK_FROM_DAYS_MORE")) : _appConfigs.CertCheckFromDaysMore;
+            var envCertCheckFromDaysMore = Environment.GetEnvironmentVariable("CERT_CHECK_FROM_DAYS_MORE");
+            var certCheckFromDaysMore = !string.IsNullOrWhiteSpace(envCertCheckFromDaysMore) ? int.Parse(envCertCheckFromDaysMore) : _appConfigs.CertCheckFromDaysMore;
             if (daysRemaining < TimeSpan.FromDays(certCheckFromDaysMore))
             {
                 var expiryMessage = $"{daysRemaining.Days} day(s) left for SSL certificate for {requestMessage.RequestUri} to expire.\n\n";
@@ -96,7 +97,6 @@ namespace SslCertificateChecker.Helpers
 
         public async Task<string> SendNotificationToTeams(string requestMessage,string subTitle, string? webHookUrl = null)
         {
-            webHookUrl ??= "https://acsintiooutlook.webhook.office.com/webhookb2/32241035-b773-4224-8b1d-519d0ca8657c@b095ede5-7cd1-4daa-b08f-320b55004f3f/IncomingWebhook/f96b671f34b0469aad9f1f6343eb2b08/ccf1c382-4ef3-436c-93db-57126815e054";
             using var httpClient = new HttpClient();
             var requestPayload = new
             {

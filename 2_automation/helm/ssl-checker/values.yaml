@@ -81,3 +81,5 @@ config:
   ASPNETCORE_ENVIRONMENT: "Development"
   DOTNET_ENVIRONMENT: "Development"
   CERT_CHECK_FROM_DAYS_MORE: 15
+  EXEC_HOUR: 3
+  DOMAINS: "some.com,domain.com"
