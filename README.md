@@ -33,3 +33,6 @@ ENVIRONMENT
 image.repository=$(IMAGE_REPO),image.tag=$(Release.Artifacts._ssl-checker-ci.BuildId),serviceAccount.name=$(CHART_NAME),nameOverride=$(CHART_NAME),fullnameOverride=$(CHART_NAME),config.ASPNETCORE_ENVIRONMENT=$(ASPNETCORE_ENVIRONMENT),config.DOTNET_ENVIRONMENT=$(DOTNET_ENVIRONMENT),config.CERT_CHECK_FROM_DAYS_MORE=$(CERT_CHECK_FROM_DAYS_MORE),config.EXEC_HOUR=$(EXEC_HOUR),config.DOMAINS=$(DOMAINS),replicaCount=$(REPLICAS)
 
 ```
+
+## Infrastructure Diagram
+![alt text](https://github.com/SAMUEL-KETECHIE/DevOps-Demo/blob/main/1_infrastructure/docs/DevOps-Demo-Infrastructure.png?raw=true)
